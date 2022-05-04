@@ -2,6 +2,7 @@ import { $Home } from './style';
 import deslogar from '../../assets/deslogar.svg';
 import circlePositive from '../../assets/circlePositive.svg';
 import circleNegative from '../../assets/circleNegative.svg';
+import { Link } from 'react-router-dom';
 
 export const Home = () => {
 	return (
@@ -14,14 +15,18 @@ export const Home = () => {
 				<p>Não há registros de entrada ou saída</p>
 			</main>
 			<footer>
-				<button>
-					<img src={circlePositive} alt='circlePositive' />
-					<span>Nova entrada</span>
-				</button>
-				<button>
-					<img src={circleNegative} alt='circleNegative' />
-					<span>Nova entrada</span>
-				</button>
+				<Link to={'/item/entrada'} >
+					<button>
+						<img src={circlePositive} alt='circlePositive' />
+						<span>Nova entrada</span>
+					</button>
+				</Link>
+				<Link to={'/item/saída'} >
+					<button>
+						<img src={circleNegative} alt='circleNegative' />
+						<span>Nova entrada</span>
+					</button>
+				</Link>
 			</footer>
 		</$Home>
 	);

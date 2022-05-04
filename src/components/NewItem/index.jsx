@@ -1,17 +1,19 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { $NewItem } from './style';
 
 export const NewItem = () => {
 
 	const navigate = useNavigate();
+	const {type} = useParams();
 	const URL = 'https://localhost:5000/items';
 
 	const [newItem, setNewItem] = useState({
 		value: '',
-		description: ''
+		description: '',
+		type
 	});
 	const [disable, setDisable] = useState(false);
 
@@ -34,7 +36,7 @@ export const NewItem = () => {
 
 	return(
 		<$NewItem>
-			<h1>Novo item</h1>
+			<h1>Nova {type}</h1>
 			<form onSubmit={SaveItem}>
 				<input
 					type="text"
@@ -59,7 +61,7 @@ export const NewItem = () => {
 					autoComplete="off"
 				/>
 				<button type="submit" disabled={disable}>
-					{disable ? <ThreeDots color="#FFFFFF" height='46' width='46' ariaLabel='loading' /> : 'Salvar item'}
+					{disable ? <ThreeDots color="#FFFFFF" height='46' width='46' ariaLabel='loading' /> : `Salvar ${type}`}
 				</button>
 			</form>
 		</$NewItem>
