@@ -44,6 +44,12 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+button{
+	cursor: pointer;
+}
+a{
+	text-decoration-line: none;
+}
 ///////// Style.css //////////
 *{
     box-sizing: border-box;
@@ -51,5 +57,13 @@ table {
 body{
     font-family: 'Raleway';
     font-weight: 400;
+	background-color: #8C11BE;
+	cursor: default;
+}
+button,
+input{
+	font-family: 'Raleway';
+    font-weight: 400;
+	border: none;
 }
 `;

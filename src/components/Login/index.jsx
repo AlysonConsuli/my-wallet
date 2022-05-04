@@ -61,7 +61,7 @@ export const Login = () => {
 					disabled={disable}
 				/>
 				<button type="submit" disabled={disable}>
-					{disable ? <ThreeDots color="#FFFFFF" height='51' width='51' ariaLabel='loading' /> : 'Entrar'}
+					{disable ? <ThreeDots color="#FFFFFF" height='46' width='46' ariaLabel='loading' /> : 'Entrar'}
 				</button>
 			</form>
 			<Link to='/cadastro'>
