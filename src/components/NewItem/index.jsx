@@ -7,7 +7,7 @@ import { $NewItem } from './style';
 export const NewItem = () => {
 
 	const navigate = useNavigate();
-	const {type} = useParams();
+	const { type } = useParams();
 	const URL = 'https://localhost:5000/items';
 
 	const [newItem, setNewItem] = useState({
@@ -20,7 +20,7 @@ export const NewItem = () => {
 	function SaveItem(e) {
 		e.preventDefault();
 		setDisable(true);
-        
+
 		const promise = axios.post(URL, newItem);
 		promise.then((res) => {
 			const { data } = res;
@@ -34,9 +34,11 @@ export const NewItem = () => {
 		});
 	}
 
-	return(
+	return (
 		<$NewItem>
-			<h1>Nova {type}</h1>
+			<header>
+				<h1>Nova {type}</h1>
+			</header>
 			<form onSubmit={SaveItem}>
 				<input
 					type="text"
