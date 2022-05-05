@@ -24,10 +24,14 @@ main{
     height: 66.8vh;
     background-color: #FFFFFF;
     border-radius: 5px;
-    display: flex;
+    /*display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;*/
+    position: relative;
+    //overflow-y: scroll;
     p{
+        margin: 0 auto;
+        padding-top: calc(33.4vh - 23px);
         width: 180px;
         height: 46px;
         line-height: 23px;
@@ -39,11 +43,10 @@ main{
 
 footer{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 15px;
     margin-top: 13px;
-    button{
+    a{
         width: 155px;
         height: 114px;
         background-color: #A328D6;
@@ -52,6 +55,10 @@ footer{
         flex-direction: column;
         justify-content: space-between;
         padding: 9px;
+        img{
+            width: 25px;
+            height: 25px;
+        }
         span{
             text-align: start;
             width: 64px;
@@ -63,4 +70,28 @@ footer{
         }
     }
 }
+`;
+
+export const Wallet = styled.div`
+padding: 23px 11px 0px 12px;
+position: absolute;
+height: calc(100% - 40px);
+width: 100%;
+overflow-y: scroll;
+::-webkit-scrollbar {
+    display: none;
+}
+`;
+
+export const Balance = styled.div`
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 15px 0 11px;
+height: 40px;
+font-weight: 700;
+font-size: 17px;
+color: #000000;
+position: absolute;
+bottom: 0;
 `;
