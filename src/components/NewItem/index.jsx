@@ -3,17 +3,20 @@ import { useState } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
 import { useNavigate, useParams } from 'react-router-dom';
 import { $NewItem } from './style';
+import dayjs from 'dayjs';
 
 export const NewItem = () => {
 
 	const navigate = useNavigate();
 	const { type } = useParams();
 	const URL = 'https://localhost:5000/items';
+	const date = dayjs().format('DD/MM');
 
 	const [newItem, setNewItem] = useState({
 		value: '',
 		description: '',
-		type
+		type,
+		date
 	});
 	const [disable, setDisable] = useState(false);
 
@@ -34,6 +37,10 @@ export const NewItem = () => {
 		});
 	}
 
+	if (type !== 'entrada' && type !== 'saída') {
+		return '';
+	}
+
 	return (
 		<$NewItem>
 			<header>
@@ -41,7 +48,7 @@ export const NewItem = () => {
 			</header>
 			<form onSubmit={SaveItem}>
 				<input
-					type="text"
+					type="number"
 					name="value"
 					id="value"
 					required
@@ -50,6 +57,7 @@ export const NewItem = () => {
 					value={newItem.value}
 					disabled={disable}
 					autoComplete="off"
+					min="0"
 				/>
 				<input
 					type="text"

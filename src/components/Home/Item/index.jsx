@@ -1,13 +1,11 @@
+/* eslint-disable react/prop-types */
 import { $Item } from './style';
-import dayjs from 'dayjs';
 
-export const Item = () => {
-	const date = dayjs().format('DD/MM');
-
-	return(
-		<$Item>
-			<span><small>{date}</small>Items</span>
-			<span>39,90</span>
+export const Item = ({ value, type, description, date }) => {
+	return (
+		<$Item type={type}>
+			<span><small>{date}</small>{description}</span>
+			<span>{value.toFixed(2).replace('.', ',')}</span>
 		</$Item>
 	);
 };

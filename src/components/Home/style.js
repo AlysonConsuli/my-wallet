@@ -100,6 +100,6 @@ span:first-child{
 }
 span:nth-child(2){
     font-size: 17px;
-    color: #03AC00;
+    color: ${props => props.balance >= 0 ? '#03AC00' : '#C70000'};
 }
 `;

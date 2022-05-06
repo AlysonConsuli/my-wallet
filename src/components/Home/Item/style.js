@@ -21,7 +21,7 @@ span:first-child{
 }
 span:nth-child(2){
     font-size: 16px;
-    color: #C70000;
+    color: ${props => props.type === 'entrada' ? '#03AC00' : '#C70000'};
     padding-left: 5px;
 }
 `;
