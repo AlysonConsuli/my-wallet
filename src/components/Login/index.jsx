@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import axios from 'axios';
 import { useContext, useState } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
@@ -16,22 +17,28 @@ export const Login = () => {
 	});
 	const [disable, setDisable] = useState(false);
 
-	const {user, setUser} = useContext(UserContext);
+	const { user, setUser } = useContext(UserContext);
 
 	function Enter(e) {
 		e.preventDefault();
 		setDisable(true);
-        
+
 		const promise = axios.post(URL, userLogin);
 		promise.then((res) => {
 			const { data } = res;
+			console.log(data);
 			const { name, email, password } = data;
 			setUser({ ...user, name, email, password });
 			navigate('/homepage');
 		});
 		promise.catch(err => {
-			console.log(err.response.data);
-			alert('Erro ao fazer Login');
+			console.log(err.response);
+			if (err.response.status === 404) {
+				alert('Usuário não encontrado');
+			}
+			if (err.response.status === 401) {
+				alert('Senha Incorreta!');
+			}
 			setDisable(false);
 		});
 	}
