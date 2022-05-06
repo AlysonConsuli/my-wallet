@@ -49,7 +49,8 @@ export const Home = () => {
 							})}
 						</Wallet>
 						<Balance>
-							Saldo
+							<span>Saldo</span>
+							<span>2849,96</span>
 						</Balance>
 					</>
 				}

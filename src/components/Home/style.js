@@ -84,14 +84,22 @@ overflow-y: scroll;
 `;
 
 export const Balance = styled.div`
+width: 100%;
 display: flex;
 justify-content: space-between;
 align-items: center;
-padding: 0 15px 0 11px;
+padding: 0 11px 0 15px;
 height: 40px;
-font-weight: 700;
-font-size: 17px;
-color: #000000;
 position: absolute;
 bottom: 0;
+
+span:first-child{
+    font-weight: 700;
+    font-size: 17px;
+    color: #000000;
+}
+span:nth-child(2){
+    font-size: 17px;
+    color: #03AC00;
+}
 `;
