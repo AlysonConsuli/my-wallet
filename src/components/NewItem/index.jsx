@@ -9,7 +9,7 @@ export const NewItem = () => {
 
 	const navigate = useNavigate();
 	const { type } = useParams();
-	const URL = 'https://localhost:5000/items';
+	const URL = 'http://localhost:5000/items';
 	const date = dayjs().format('DD/MM');
 
 	const [newItem, setNewItem] = useState({

@@ -37,7 +37,7 @@ export const Home = () => {
 	const { user, setUser } = useContext(UserContext);
 
 	/*useEffect(() => {
-		const promise = axios.get('https://localhost:5000/items');
+		const promise = axios.get('http://localhost:5000/items');
 		promise.then(res => {
 			const { data } = res;
 			console.log(data);

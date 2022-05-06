@@ -8,7 +8,7 @@ import { $Login } from './style';
 export const Login = () => {
 
 	const navigate = useNavigate();
-	const URL = 'https://localhost:5000/login';
+	const URL = 'http://localhost:5000/login';
 
 	const [userLogin, setUserLogin] = useState({
 		email: '',
