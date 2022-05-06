@@ -1,9 +1,10 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
 import { useNavigate, useParams } from 'react-router-dom';
 import { $NewItem } from './style';
 import dayjs from 'dayjs';
+import { UserContext } from '../../contexts/UserContext';
 
 export const NewItem = () => {
 
@@ -20,11 +21,18 @@ export const NewItem = () => {
 	});
 	const [disable, setDisable] = useState(false);
 
+	const { user } = useContext(UserContext);
+	const config = {
+		headers: {
+			'Authorization': `Bearer ${user.token}`
+		}
+	};
+
 	function SaveItem(e) {
 		e.preventDefault();
 		setDisable(true);
 
-		const promise = axios.post(URL, newItem);
+		const promise = axios.post(URL, newItem, config);
 		promise.then((res) => {
 			const { data } = res;
 			console.log(data);
@@ -58,6 +66,7 @@ export const NewItem = () => {
 					disabled={disable}
 					autoComplete="off"
 					min="0"
+					step="0.01"
 				/>
 				<input
 					type="text"

@@ -27,8 +27,8 @@ export const Login = () => {
 		promise.then((res) => {
 			const { data } = res;
 			console.log(data);
-			const { name, email, password } = data;
-			setUser({ ...user, name, email, password });
+			const { name, email, password, token } = data;
+			setUser({ ...user, name, email, password, token });
 			navigate('/homepage');
 		});
 		promise.catch(err => {

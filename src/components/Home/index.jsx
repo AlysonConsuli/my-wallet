@@ -12,32 +12,20 @@ import { Item } from './Item';
 export const Home = () => {
 
 	const [items, setItems] = useState([]);
-	
-	//exemplo local:
-	useEffect(() => setItems([
-		{
-			value: 30.45,
-			description: 'Teste',
-			type: 'entrada',
-			date: '04/05'
-		},
-		{
-			value: 10.45,
-			description: 'Teste 2',
-			type: 'saída',
-			date: '05/05'
-		}
-	]), []);
-	//fim do exemplo
 
 	let balance = 0;
 
 	const navigate = useNavigate();
-	const URL = 'https://localhost:5000/items';
+	const URL = 'http://localhost:5000/items';
 	const { user, setUser } = useContext(UserContext);
+	const config = {
+		headers: {
+			'Authorization': `Bearer ${user.token}`
+		}
+	};
 
-	/*useEffect(() => {
-		const promise = axios.get('http://localhost:5000/items');
+	useEffect(() => {
+		const promise = axios.get(URL, config);
 		promise.then(res => {
 			const { data } = res;
 			console.log(data);
@@ -47,7 +35,7 @@ export const Home = () => {
 			console.log(err.response.data);
 			alert('Erro ao pegar os itens');
 		});
-	}, []);*/
+	}, []);
 
 	function logOut() {
 		setUser({
