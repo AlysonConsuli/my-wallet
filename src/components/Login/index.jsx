@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import axios from 'axios';
 import { useContext, useState } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
@@ -33,13 +32,17 @@ export const Login = () => {
 		});
 		promise.catch(err => {
 			console.log(err.response);
+			setDisable(false);
 			if (err.response.status === 404) {
-				alert('Usuário não encontrado');
+				return alert('Usuário não encontrado');
 			}
 			if (err.response.status === 401) {
-				alert('Senha Incorreta!');
+				return alert('Senha Incorreta!');
 			}
-			setDisable(false);
+			if (err.response.status === 422) {
+				return alert('Preencha os dados corretamente.');
+			}
+			alert('Erro ao fazer Login');
 		});
 	}
 
@@ -66,6 +69,9 @@ export const Login = () => {
 					onChange={e => setUserLogin({ ...userLogin, password: e.target.value })}
 					value={userLogin.password}
 					disabled={disable}
+					minLength="3"
+					pattern="^[a-zA-Z0-9]{3,}$"
+					title="Apenas letras e números. Tamanho mínimo de 3 caracteres."
 				/>
 				<button type="submit" disabled={disable}>
 					{disable ? <ThreeDots color="#FFFFFF" height='46' width='46' ariaLabel='loading' /> : 'Entrar'}
