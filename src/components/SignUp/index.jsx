@@ -11,14 +11,14 @@ export const SignUp = () => {
 	const [newUser, setNewUser] = useState({
 		name: '',
 		email: '',
-		password: ''
+		password: '',
+		repeatPassword: ''
 	});
 	const [disable, setDisable] = useState(false);
-	const [confirmPassword, setConfirmPassword] = useState('');
 
 	function Register(e) {
 		e.preventDefault();
-		if (newUser.password !== confirmPassword) {
+		if (newUser.password !== newUser.repeatPassword) {
 			return alert('Senha incorreta');
 		}
 		setDisable(true);
@@ -30,9 +30,15 @@ export const SignUp = () => {
 			navigate('/');
 		});
 		promise.catch(err => {
-			console.log(err.response.data);
-			alert('Erro ao fazer Cadastro');
+			console.log(err.response);
 			setDisable(false);
+			if (err.response.status === 409) {
+				return alert('Usuário já existe.');
+			}
+			if (err.response.status === 422) {
+				return alert('Preencha os dados corretamente.');
+			}
+			alert('Erro ao fazer Cadastro');
 		});
 	}
 
@@ -72,15 +78,18 @@ export const SignUp = () => {
 					value={newUser.password}
 					disabled={disable}
 					autoComplete="off"
+					minLength="3"
+					pattern="^[a-zA-Z0-9]{3,}$"
+					title="Apenas letras e números. Tamanho mínimo de 3 caracteres."
 				/>
 				<input
 					type="password"
-					name="confirm password"
-					id="confirmPassword"
+					name="Repeat Password"
+					id="repeatPassword"
 					required
 					placeholder="Confirme a senha"
-					onChange={e => setConfirmPassword(e.target.value)}
-					value={confirmPassword}
+					onChange={e => setNewUser({ ...newUser, repeatPassword: e.target.value })}
+					value={newUser.repeatPassword}
 					disabled={disable}
 					autoComplete="off"
 				/>
