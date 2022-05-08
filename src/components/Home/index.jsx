@@ -37,9 +37,19 @@ export const Home = () => {
 	}, []);
 
 	function logOut() {
-		localStorage.clear();
-		setUser({ ...user, name: '', token: '' });
-		navigate('/');
+		const confirmation = confirm('Deseja realmente fazer log-out?');
+		if (confirmation) {
+			const promise = axios.delete('http://localhost:5000/session', config);
+			promise.then(() => {
+				localStorage.clear();
+				setUser({ ...user, name: '', token: '' });
+				navigate('/');
+			});
+			promise.catch(err => {
+				console.log(err.response.data);
+				alert('Erro ao fazer log-out');
+			});
+		}
 	}
 
 	return (
