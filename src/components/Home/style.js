@@ -73,7 +73,7 @@ footer{
 `;
 
 export const Wallet = styled.div`
-padding: 23px 11px 0px 12px;
+padding: 23px 31px 0px 12px;
 position: absolute;
 height: calc(100% - 40px);
 width: 100%;

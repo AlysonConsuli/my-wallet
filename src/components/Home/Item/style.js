@@ -6,6 +6,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 margin-bottom: 20px;
+position: relative;
 
 small{
     padding-right: 7px;
@@ -23,5 +24,14 @@ span:nth-child(2){
     font-size: 16px;
     color: ${props => props.type === 'entrada' ? '#03AC00' : '#C70000'};
     padding-left: 5px;
+}
+
+div{
+    position: absolute;
+    right: -20px;
+    font-size: 16px;
+    text-align: center;
+    color: #C6C6C6;
+    cursor: pointer;
 }
 `;

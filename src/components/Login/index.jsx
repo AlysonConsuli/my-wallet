@@ -68,7 +68,7 @@ export const Login = () => {
 		return (
 			<AutoLogin>
 				<h1>Logando...</h1>
-				<ThreeDots color="#A328D6" height={80} width={80} />
+				<ThreeDots color="#FFFFFF" height={80} width={80} />
 			</AutoLogin>
 		);
 	}
