@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
-import { $Login } from './style';
+import { $Login, AutoLogin } from './style';
 
 export const Login = () => {
 
@@ -26,8 +26,12 @@ export const Login = () => {
 		promise.then((res) => {
 			const { data } = res;
 			console.log(data);
-			const { name, email, password, token } = data;
-			setUser({ ...user, name, email, password, token });
+			const { name, token } = data;
+			setUser({ ...user, name, token });
+
+			const userSerialized = JSON.stringify({ name, token });
+			localStorage.setItem('user', userSerialized);
+
 			navigate('/homepage');
 		});
 		promise.catch(err => {
@@ -44,6 +48,29 @@ export const Login = () => {
 			}
 			alert('Erro ao fazer Login');
 		});
+	}
+
+	const config = {
+		headers: {
+			'Authorization': `Bearer ${user.token}`
+		}
+	};
+	if (user.token.length !== 0) {
+		const promise = axios.post('http://localhost:5000/auto-login', {}, config);
+		promise.then(() => {
+			navigate('/homepage');
+		});
+		promise.catch(err => {
+			console.log(err.response);
+			alert('Erro ao fazer o auto-login');
+		});
+
+		return (
+			<AutoLogin>
+				<h1>Logando...</h1>
+				<ThreeDots color="#A328D6" height={80} width={80} />
+			</AutoLogin>
+		);
 	}
 
 	return (

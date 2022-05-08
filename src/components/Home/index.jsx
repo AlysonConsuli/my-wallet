@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { $Home, Balance, Wallet } from './style';
 import deslogar from '../../assets/deslogar.svg';
 import circlePositive from '../../assets/circlePositive.svg';
@@ -38,12 +37,8 @@ export const Home = () => {
 	}, []);
 
 	function logOut() {
-		setUser({
-			...user,
-			name: '',
-			email: '',
-			password: ''
-		});
+		localStorage.clear();
+		setUser({ ...user, name: '', token: '' });
 		navigate('/');
 	}
 

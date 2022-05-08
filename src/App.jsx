@@ -8,11 +8,19 @@ import { UserContext } from './contexts/UserContext';
 import { GlobalStyle } from './style';
 
 export const App = () => {
+	let name = '';
+	let token = '';
+
+	const userStringify = localStorage.getItem('user');
+	if (userStringify) {
+		const userLocal = JSON.parse(userStringify);
+		name = userLocal.name;
+		token = userLocal.token;
+	}
 
 	const [user, setUser] = useState({
-		name: '',
-		email: '',
-		password: ''
+		name,
+		token
 	});
 
 	return (
