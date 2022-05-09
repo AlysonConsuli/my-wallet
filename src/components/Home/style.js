@@ -21,13 +21,13 @@ header{
     }
 }
 main{
-    height: 66.86vh;
+    height: 65.5vh;
     background-color: #FFFFFF;
     border-radius: 5px;
     position: relative;
     p{
         margin: 0 auto;
-        padding-top: calc(33.43vh - 23px);
+        padding-top: calc(32.75vh - 23px);
         width: 180px;
         height: 46px;
         line-height: 23px;
@@ -41,8 +41,7 @@ footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 20.98vh;
-    max-height: 140px;
+    margin-top: 13px;
     a{
         width: 155px;
         height: 17.09vh;
