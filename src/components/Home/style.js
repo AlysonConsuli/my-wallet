@@ -6,7 +6,7 @@ margin: 0 auto;
 
 header{
     width: 100%;
-    height: 78px;
+    height: 11.69vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,13 +20,13 @@ header{
     }
 }
 main{
-    height: 66vh;
+    height: 66.86vh;
     background-color: #FFFFFF;
     border-radius: 5px;
     position: relative;
     p{
         margin: 0 auto;
-        padding-top: calc(33vh - 23px);
+        padding-top: calc(33.43vh - 23px);
         width: 180px;
         height: 46px;
         line-height: 23px;
@@ -40,10 +40,11 @@ footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 13px;
+    height: 20.98vh;
     a{
         width: 155px;
-        height: 114px;
+        height: 17.09vh;
+        max-height: 114px;
         background-color: #A328D6;
         border-radius: 5px;
         display: flex;
