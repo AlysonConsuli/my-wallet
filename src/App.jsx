@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { EditItem } from './components/EditItem';
 import { Home } from './components/Home';
 import { Login } from './components/Login';
 import { NewItem } from './components/NewItem';
@@ -33,6 +34,7 @@ export const App = () => {
 						<Route path='/cadastro' element={<SignUp />} />
 						<Route path='/homepage' element={<Home />} />
 						<Route path='/item/:type' element={<NewItem />} />
+						<Route path='/editar/:type/:id' element={<EditItem />} />
 					</Routes>
 				</BrowserRouter>
 			</UserContext.Provider>

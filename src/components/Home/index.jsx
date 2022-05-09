@@ -11,7 +11,7 @@ import { Item } from './Item';
 export const Home = () => {
 
 	const [items, setItems] = useState([]);
-	const [toggleErase, setToggleErase] = useState(false);
+	const [refresh, setRefresh] = useState(false);
 
 	let balance = 0;
 
@@ -35,7 +35,7 @@ export const Home = () => {
 			console.log(err.response.data);
 			alert('Erro ao pegar os itens');
 		});
-	}, [toggleErase]);
+	}, [refresh]);
 
 	function logOut() {
 		const confirmation = confirm('Deseja realmente fazer log-out?');
@@ -55,9 +55,15 @@ export const Home = () => {
 
 	function callbackDelete(id) {
 		const promise = axios.delete(`http://localhost:5000/items/${id}`, config);
-		promise.then(() => setToggleErase(!toggleErase));
+		promise.then(() => setRefresh(!refresh));
 		promise.catch(({ response }) => console.log(response));
 	}
+
+	/*function callbackEdit(id) {
+		const promise = axios.put(`http://localhost:5000/items/${id}`, config);
+		promise.then(() => setRefresh(!refresh));
+		promise.catch(({ response }) => console.log(response));
+	}*/
 
 	return (
 		<$Home>
@@ -82,7 +88,8 @@ export const Home = () => {
 										description={item.description}
 										type={item.type}
 										date={item.date}
-										callbackDelete={() => callbackDelete(item.id)}
+										id={item.id}
+										callbackDelete={() => callbackDelete(item.id)}										
 									/>
 								);
 							})}
