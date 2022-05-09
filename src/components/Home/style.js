@@ -19,16 +19,11 @@ header{
         cursor: pointer;
     }
 }
-
 main{
     height: 66.8vh;
     background-color: #FFFFFF;
     border-radius: 5px;
-    /*display: flex;
-    justify-content: center;
-    align-items: center;*/
     position: relative;
-    //overflow-y: scroll;
     p{
         margin: 0 auto;
         padding-top: calc(33.4vh - 23px);

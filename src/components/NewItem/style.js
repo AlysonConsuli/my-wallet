@@ -16,7 +16,6 @@ header{
         color: #FFFFFF;
     }
 }
-
 input{
     width: 100vw;
     max-width: 326px;
@@ -27,8 +26,6 @@ input{
     color: #000000;
     padding-left: 15px;
 }
-
-
 button{
     width: 100vw;
     max-width: 326px;
@@ -42,7 +39,6 @@ button{
     justify-content: center;
     align-items: center;
 }
-
 form{
     display: flex;
     flex-direction: column;
@@ -51,5 +47,4 @@ form{
     gap: 13px;
     margin-top: 18px;
 }
-
 `;

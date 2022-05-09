@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const $Item = styled.div`
-
 position: relative;
 margin-bottom: 20px;
 cursor: pointer;
@@ -10,7 +9,6 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     small{
         padding-right: 7px;
         font-size: 16px;

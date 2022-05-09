@@ -30,13 +30,8 @@ export const EditItem = () => {
 		setDisable(true);
 
 		const promise = axios.put(URL, editItem, config);
-		promise.then((res) => {
-			const { data } = res;
-			console.log(data);
-			navigate('/homepage');
-		});
-		promise.catch(err => {
-			console.log(err.response.data);
+		promise.then(() => navigate('/homepage'));
+		promise.catch(() => {
 			alert('Erro ao editar o item');
 			setDisable(false);
 		});

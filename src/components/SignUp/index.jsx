@@ -24,13 +24,8 @@ export const SignUp = () => {
 		setDisable(true);
 
 		const promise = axios.post(URL, newUser);
-		promise.then((res) => {
-			const { data } = res;
-			console.log(data);
-			navigate('/');
-		});
+		promise.then(() => navigate('/'));
 		promise.catch(err => {
-			console.log(err.response);
 			setDisable(false);
 			if (err.response.status === 409) {
 				return alert('Usuário já existe.');

@@ -28,13 +28,9 @@ export const Home = () => {
 		const promise = axios.get(URL, config);
 		promise.then(res => {
 			const { data } = res;
-			console.log(data);
 			setItems(data);
 		});
-		promise.catch(err => {
-			console.log(err.response.data);
-			alert('Erro ao pegar os itens');
-		});
+		promise.catch(() => alert('Erro ao pegar os itens'));
 	}, [refresh]);
 
 	function logOut() {
@@ -46,24 +42,15 @@ export const Home = () => {
 				setUser({ ...user, name: '', token: '' });
 				navigate('/');
 			});
-			promise.catch(err => {
-				console.log(err.response.data);
-				alert('Erro ao fazer log-out');
-			});
+			promise.catch(() => alert('Erro ao fazer log-out'));
 		}
 	}
 
 	function callbackDelete(id) {
 		const promise = axios.delete(`http://localhost:5000/items/${id}`, config);
 		promise.then(() => setRefresh(!refresh));
-		promise.catch(({ response }) => console.log(response));
+		promise.catch(() => alert('Erro ao apagar o item'));
 	}
-
-	/*function callbackEdit(id) {
-		const promise = axios.put(`http://localhost:5000/items/${id}`, config);
-		promise.then(() => setRefresh(!refresh));
-		promise.catch(({ response }) => console.log(response));
-	}*/
 
 	return (
 		<$Home>
@@ -89,7 +76,7 @@ export const Home = () => {
 										type={item.type}
 										date={item.date}
 										id={item.id}
-										callbackDelete={() => callbackDelete(item.id)}										
+										callbackDelete={() => callbackDelete(item.id)}
 									/>
 								);
 							})}

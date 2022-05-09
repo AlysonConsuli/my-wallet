@@ -1,20 +1,17 @@
 import styled from 'styled-components';
 
 export const $Login = styled.div`
-
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
 margin-top: 159px;
-
 h1{
     font-family: 'Saira Stencil One';
     font-size: 32px;
     color: #FFFFFF;
     margin-bottom: 24px;
 }
-
 input{
     width: 100vw;
     max-width: 326px;
@@ -25,7 +22,6 @@ input{
     color: #000000;
     padding-left: 15px;
 }
-
 button{
     width: 100vw;
     max-width: 326px;
@@ -39,7 +35,6 @@ button{
     justify-content: center;
     align-items: center;
 }
-
 form{
     display: flex;
     flex-direction: column;
@@ -48,13 +43,11 @@ form{
     gap: 13px;
     margin-bottom: 36px;
 }
-
 span{
     font-weight: 700;
     font-size: 15px;
     color: #FFFFFF;
 }
-
 `;
 
 export const AutoLogin = styled.div`

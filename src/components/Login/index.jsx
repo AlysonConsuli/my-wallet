@@ -25,7 +25,6 @@ export const Login = () => {
 		const promise = axios.post(URL, userLogin);
 		promise.then((res) => {
 			const { data } = res;
-			console.log(data);
 			const { name, token } = data;
 			setUser({ ...user, name, token });
 
@@ -35,7 +34,6 @@ export const Login = () => {
 			navigate('/homepage');
 		});
 		promise.catch(err => {
-			console.log(err.response);
 			setDisable(false);
 			if (err.response.status === 404) {
 				return alert('Usuário não encontrado');
@@ -60,10 +58,7 @@ export const Login = () => {
 		promise.then(() => {
 			navigate('/homepage');
 		});
-		promise.catch(err => {
-			console.log(err.response);
-			alert('Erro ao fazer o auto-login');
-		});
+		promise.catch(() => alert('Erro ao fazer o auto-login'));
 
 		return (
 			<AutoLogin>

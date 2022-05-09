@@ -33,13 +33,8 @@ export const NewItem = () => {
 		setDisable(true);
 
 		const promise = axios.post(URL, newItem, config);
-		promise.then((res) => {
-			const { data } = res;
-			console.log(data);
-			navigate('/homepage');
-		});
-		promise.catch(err => {
-			console.log(err.response.data);
+		promise.then(() => navigate('/homepage'));
+		promise.catch(() => {
 			alert('Erro ao salvar o item');
 			setDisable(false);
 		});
