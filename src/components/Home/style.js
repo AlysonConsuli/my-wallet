@@ -6,7 +6,7 @@ margin: 0 auto;
 
 header{
     width: 100%;
-    height: 78px;
+    height: 11.7vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,10 +40,10 @@ footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 13px;
+    margin-top: 1.95vh;
     a{
         width: 155px;
-        height: 114px;
+        height: 17.1vh;
         background-color: #A328D6;
         border-radius: 5px;
         display: flex;
