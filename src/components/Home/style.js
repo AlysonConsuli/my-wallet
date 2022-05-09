@@ -7,6 +7,7 @@ margin: 0 auto;
 header{
     width: 100%;
     height: 11.69vh;
+    max-height: 78px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,6 +42,7 @@ footer{
     justify-content: space-between;
     align-items: center;
     height: 20.98vh;
+    max-height: 140px;
     a{
         width: 155px;
         height: 17.09vh;
