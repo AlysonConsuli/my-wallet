@@ -6,7 +6,7 @@ import { $SignUp } from './style';
 
 export const SignUp = () => {
 	const navigate = useNavigate();
-	const URL = 'http://localhost:5000/users';
+	const URL = 'https://my-wallet-project13.herokuapp.com/users';
 
 	const [newUser, setNewUser] = useState({
 		name: '',

@@ -10,7 +10,7 @@ export const EditItem = () => {
 	const navigate = useNavigate();
 	const { type } = useParams();
 	const { id } = useParams();
-	const URL = `http://localhost:5000/items/${id}`;
+	const URL = `https://my-wallet-project13.herokuapp.com/items/${id}`;
 
 	const [editItem, setEditItem] = useState({
 		value: '',
