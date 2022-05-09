@@ -21,13 +21,13 @@ header{
     }
 }
 main{
-    height: 65.5vh;
+    height: 65vh;
     background-color: #FFFFFF;
     border-radius: 5px;
     position: relative;
     p{
         margin: 0 auto;
-        padding-top: calc(32.75vh - 23px);
+        padding-top: calc(32.5vh - 23px);
         width: 180px;
         height: 46px;
         line-height: 23px;
