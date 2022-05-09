@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ThreeDots } from 'react-loader-spinner';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
@@ -53,20 +53,22 @@ export const Login = () => {
 			'Authorization': `Bearer ${user.token}`
 		}
 	};
-	if (user.token.length !== 0) {
-		const promise = axios.post('http://localhost:5000/auto-login', {}, config);
-		promise.then(() => {
-			navigate('/homepage');
-		});
-		promise.catch(() => alert('Erro ao fazer o auto-login'));
+	useEffect(() => {
+		if (user.token.length !== 0) {
+			const promise = axios.post('http://localhost:5000/auto-login', {}, config);
+			promise.then(() => {
+				navigate('/homepage');
+			});
+			promise.catch(() => alert('Erro ao fazer o auto-login'));
 
-		return (
-			<AutoLogin>
-				<h1>Logando...</h1>
-				<ThreeDots color="#FFFFFF" height={80} width={80} />
-			</AutoLogin>
-		);
-	}
+			return (
+				<AutoLogin>
+					<h1>Logando...</h1>
+					<ThreeDots color="#FFFFFF" height={80} width={80} />
+				</AutoLogin>
+			);
+		}
+	}, []);
 
 	return (
 		<$Login>
