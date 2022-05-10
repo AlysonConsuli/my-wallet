@@ -95,7 +95,7 @@ export const Home = () => {
 				</Link>
 				<Link to={'/item/saída'} >
 					<img src={circleNegative} alt='circleNegative' />
-					<span>Nova entrada</span>
+					<span>Nova saída</span>
 				</Link>
 			</footer>
 		</$Home>
