@@ -16,7 +16,7 @@ export const Home = () => {
 	let balance = 0;
 
 	const navigate = useNavigate();
-	const URL = 'https://my-wallet-project13.herokuapp.com/items';
+	const URL = 'https://my-wallet-api.onrender.com/items';
 	const { user, setUser } = useContext(UserContext);
 	const config = {
 		headers: {
@@ -36,7 +36,7 @@ export const Home = () => {
 	function logOut() {
 		const confirmation = confirm('Deseja realmente fazer log-out?');
 		if (confirmation) {
-			const promise = axios.delete('https://my-wallet-project13.herokuapp.com/session', config);
+			const promise = axios.delete('https://my-wallet-api.onrender.com/session', config);
 			promise.then(() => {
 				localStorage.clear();
 				setUser({ ...user, name: '', token: '' });
@@ -47,7 +47,7 @@ export const Home = () => {
 	}
 
 	function callbackDelete(id) {
-		const promise = axios.delete(`https://my-wallet-project13.herokuapp.com/items/${id}`, config);
+		const promise = axios.delete(`https://my-wallet-api.onrender.com/items/${id}`, config);
 		promise.then(() => setRefresh(!refresh));
 		promise.catch(() => alert('Erro ao apagar o item'));
 	}

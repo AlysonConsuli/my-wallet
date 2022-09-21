@@ -8,7 +8,7 @@ import { $Login, AutoLogin } from './style';
 export const Login = () => {
 
 	const navigate = useNavigate();
-	const URL = 'https://my-wallet-project13.herokuapp.com/login';
+	const URL = 'https://my-wallet-api.onrender.com/login';
 
 	const [userLogin, setUserLogin] = useState({
 		email: '',
@@ -55,7 +55,7 @@ export const Login = () => {
 	};
 	useEffect(() => {
 		if (user.token.length !== 0) {
-			const promise = axios.post('https://my-wallet-project13.herokuapp.com/auto-login', {}, config);
+			const promise = axios.post('https://my-wallet-api.onrender.com/auto-login', {}, config);
 			promise.then(() => {
 				navigate('/homepage');
 			});
